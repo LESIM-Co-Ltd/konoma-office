@@ -26,7 +26,12 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends pkg-config cmake libssl-dev zlib1g-dev
+          # The fonts are part of the tests: slide text is measured against a real face, and
+          # CJK widths need a CJK face (fonts-droid-fallback), emoji need fonts-noto-color-emoji.
+          # fonts-freefont-ttf is what fontconfig's `sans-serif` alias resolves to on Debian/Ubuntu.
+          sudo apt-get install -y --no-install-recommends pkg-config cmake libssl-dev zlib1g-dev \
+            fontconfig-config fonts-dejavu-core fonts-freefont-ttf \
+            fonts-droid-fallback fonts-noto-color-emoji
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy, rustfmt

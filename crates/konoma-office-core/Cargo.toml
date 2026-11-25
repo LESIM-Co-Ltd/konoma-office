@@ -9,10 +9,10 @@ description = "konoma's Office readers: spreadsheets, Word and PowerPoint/OpenDo
 
 [dependencies]
 # Optional: the test modules shared with the host (feature `test-hooks`) build on it.
-konoma-test-support = { path = "../konoma-test-support", version = "0.1.0", optional = true }
-konoma-base = { path = "../konoma-base", version = "0.1.0" }
-konoma-svg = { path = "../konoma-svg", version = "0.1.0" }
-konoma-math-core = { path = "../konoma-math-core", version = "0.1.0" }
+konoma-test-support = { version = "0.1.0", optional = true }
+konoma-base = { version = "0.1.0" }
+konoma-svg = { version = "0.1.0" }
+konoma-math-core = { version = "0.1.0" }
 
 # Spreadsheet preview (xlsx/xlsm/xltx/xltm/xlsb/xls/ods): pure-Rust readers. xlsx/xlsm/xltx/xltm are read
 # by konoma itself in one pass (xlsx.rs); for xlsb/xls/ods the values, sheet list,
@@ -49,9 +49,9 @@ sys-locale.workspace = true
 libc.workspace = true
 
 [dev-dependencies]
-konoma-test-support = { path = "../konoma-test-support" }
+konoma-test-support = { version = "0.1.0" }
 # The hardening tests ask the SVG guard for its work estimates (test-only functions there).
-konoma-svg = { path = "../konoma-svg", features = ["test-hooks"] }
+konoma-svg = { version = "0.1.0", features = ["test-hooks"] }
 serde_json.workspace = true
 
 [features]
